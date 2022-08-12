@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#container {
+    background-color: blue;
+    height: 100vh;
+    min-height: 300px;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 40px auto;
+    grid-template-columns: 100%;
+    grid-template-areas:
+    'header'
+    'content';
+}
+
+#header {
+    grid-area: header;
+    background-color: #7A4495;
+}
+
+#content {
+    grid-area: content;
+    background-color: #FCE2DB;
+    font-family: 'Courgette', cursive;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 98%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    width: 24%;
+    height: 95%;
+    min-width: 30px;
+    background-color: #FF8FB1;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+li:hover {
+    background-color: #B270A2;
+    cursor: pointer;
+    color: white;
+}
+
+.list-name {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.todo-item {
+    padding-top: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #7A4495;
+    display: flex;
+    justify-content: center;
+    color: white;
+    border-radius: 10px;
+}
