@@ -13,12 +13,28 @@
 </head>
 <body>
     <div id="container">
+        <div class="hidden-div">
+            <div class="upper-hidden-div">
+                <div class="welcome-small">
+                    <p>welcome</p>
+                    <p>Mostafa Zeighami</p>
+                </div>
+            </div>
+            <div class="lower-hidden-div">
+                <ul class="new-ul">
+                    <li><span class="sun">&#9788;</span><p> Day</p></li>
+                    <li><span class="star">&#9733;</span><p>Important</p></li>
+                    <li><img src="plan.png" /><p>Planned</p></li>
+                    <li><p>Tasks</p></li>
+                </ul>
+            </div>
+        </div>
         <div id="header">
             <div class="welcome">
                 <p>welcome</p>
                 <p>Mostafa Zeighami</p>
             </div>
-            <ul>
+            <ul class="options">
                 <li>My Day</li>
                 <li>Important</li>
                 <li>Planned</li>
@@ -31,12 +47,22 @@
                 <p>current list:</p>
                 <p>My new list</p>
             </div>
-            <div class="list-selector">
-                <label for="lists"></label>
-                <select name="lists" id="lists"></select>
+            <div class="select-container">
+                <p>select list:</p>
+                <div class="custom-select" style="width:200px">
+                    <select>
+                        <option value="0">select your list here</option>
+                        <option value="1">daily</option>
+                        <option value="2">my new list</option>
+                        <option value="3">create list</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div id="content">
+            <div class="hidden-part">
+                <p>My Day</p>
+            </div>
             <div class="items">
                 <div class="list-name">
                     <p>
@@ -85,5 +111,7 @@
             
         </div>
     </div>
+
+    <script src="select-input.js"></script>
 </body>
 </html>
