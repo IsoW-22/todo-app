@@ -13,105 +13,90 @@
 </head>
 <body>
     <div id="container">
-        <div class="hidden-div">
-            <div class="upper-hidden-div">
+        <div id="nav">
+            <div class="upper-nav">
                 <div class="welcome-small">
                     <p>welcome</p>
                     <p>Mostafa Zeighami</p>
                 </div>
             </div>
-            <div class="lower-hidden-div">
+            <div class="lower-nav">
                 <ul class="new-ul">
-                    <li><span class="sun">&#9788;</span><p> Day</p></li>
-                    <li><span class="star">&#9733;</span><p>Important</p></li>
-                    <li><img src="plan.png" /><p>Planned</p></li>
-                    <li><p>Tasks</p></li>
+                    <li><span class="sun">🌞</span><p> Day</p></li>
+                    <li><span class="star">⭐️</span><p class="li">Important</p></li>
+                    <li><span class="plan">&#x1F4D1;</span><p class="li">Planned</p></li>
+                    <li><span class="plan">&#x1F4DD;</span><p class="li">Tasks</p></li>
+                </ul>
+            </div>
+            <hr />
+            <div class="lists">
+                <ul>
+                    <li>Create List</li>
                 </ul>
             </div>
         </div>
         <div id="header">
-            <div class="welcome">
-                <p>welcome</p>
-                <p>Mostafa Zeighami</p>
+            <div class="menu">
+                <img src="https://img.icons8.com/ios-filled/30/000000/menu--v2.png" />
             </div>
-            <ul class="options">
-                <li>My Day</li>
-                <li>Important</li>
-                <li>Planned</li>
-                <li>Tasks</li>
-            </ul>
-            <div class="current-part">
-                <p>My Day</p>
-            </div>
-            <div class="current-list">
-                <p>current list:</p>
-                <p>My new list</p>
-            </div>
-            <div class="select-container">
-                <p>select list:</p>
-                <div class="custom-select" style="width:200px">
-                    <select>
-                        <option value="0">select your list here</option>
-                        <option value="1">daily</option>
-                        <option value="2">my new list</option>
-                        <option value="3">create list</option>
-                    </select>
+            <div class="dateAndDay">
+                <div class="current-part">
+                    <p>My Day</p>
                 </div>
-            </div>
-        </div>
-        <div id="content">
-            <div class="hidden-part">
-                <p>My Day</p>
-            </div>
-            <div class="items">
-                <div class="list-name">
-                    <p>
+                <div id="date">
+                
+                </div>
+                <div class="list">
+                    <p class="list-name">
                         <span class="pointer">Untitled list</span>
                     </p>
                 </div>
+                
+            </div>
+            <div class="font-change">
+                <img src="https://img.icons8.com/ios-glyphs/40/000000/choose-font.png" />
+            </div>
+            <div>
+                <img src="theme.png" alt="theme" class="theme-change">
+            </div>
+        </div>
+        <div id="content">
+            <div class="list2">
+                <p class="list-name">
+                    <span class="pointer">Untitled list</span>
+                </p>
+            </div>
+            <div class="items">
                 <div class="todo-item">
                     <p>new work</p>
                 </div>
                 <div class="todo-item">
                     <p>new work 2</p>
                 </div>
-                <div class="create"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-                <div class="todo-item"></div>
-
+                <div class="create">
+                    <img
+                        src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/25/000000/external-Green-Plus-miscellaneous-kiranshastry-lineal-color-kiranshastry.png" />
+                        <p>Create</p>
+                </div>
+                <div class="todo-item">
+                    <p>new work 2</p>
+                </div>
+                <div class="todo-item">
+                    <p>new work 2</p>
+                </div>
             </div>
             
         </div>
     </div>
 
-    <script src="select-input.js"></script>
+    <script>
+        const today = new Date();
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const monthDay = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let day = weekday[today.getDay()];
+        let month = monthDay[today.getMonth()];
+        const day2 = today.getDate();
+        document.getElementById("date").innerHTML = `${day}, ${month} ${day2}`;
+    </script>
 </body>
 </html>
