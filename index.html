@@ -14,50 +14,56 @@
 <body>
     <div id="container">
         <div id="nav">
-            <div class="upper-nav">
-                <div class="welcome-small">
-                    <p>welcome</p>
-                    <p>Mostafa Zeighami</p>
+            <div class="hide">
+                <div class="upper-nav">
+                    <div class="back">
+                        <img src="https://img.icons8.com/nolan/30/back.png" />
+                    </div>
+                    <div class="welcome-small">
+                        <p>welcome</p>
+                        <p>Mostafa Zeighami</p>
+                    </div>
                 </div>
-            </div>
-            <div class="lower-nav">
-                <ul class="new-ul">
-                    <li><span class="sun">🌞</span><p> Day</p></li>
-                    <li><span class="star">⭐️</span><p class="li">Important</p></li>
-                    <li><span class="plan">&#x1F4D1;</span><p class="li">Planned</p></li>
-                    <li><span class="plan">&#x1F4DD;</span><p class="li">Tasks</p></li>
-                </ul>
-            </div>
-            <hr />
-            <div class="lists">
-                <ul>
-                    <li>Create List</li>
-                </ul>
+                <div class="lower-nav">
+                    <ul class="new-ul">
+                        <li><span class="sun">🌞</span><p> Day</p></li>
+                        <li><span class="star">⭐️</span><p class="li">Important</p></li>
+                        <li><span class="plan">&#x1F4D1;</span><p class="li">Planned</p></li>
+                        <li><span class="plan">&#x1F4DD;</span><p class="li">Tasks</p></li>
+                    </ul>
+                </div>
+                <div class="empty"></div>
+                <div class="lists">
+                    <ul>
+                        <li>Untitled list</li>
+                        <li class="create-list"><img src="https://img.icons8.com/emoji/20/000000/plus-emoji.png" />Create List</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div id="header">
-            <div class="menu">
-                <img src="https://img.icons8.com/ios-filled/30/000000/menu--v2.png" />
-            </div>
-            <div class="dateAndDay">
-                <div class="current-part">
-                    <p>My Day</p>
+            <div class="background-less">
+                <div class="menu">
+                    <img src="https://img.icons8.com/ios-filled/30/000000/menu--v2.png" />
                 </div>
-                <div id="date">
-                
+                <div class="dateAndDay">
+                    <div class="current-part">
+                        <p>My Day</p>
+                    </div>
+                    <div id="date">
+                    
+                    </div>
+                    <div class="list">
+                        <p class="list-name">
+                            <span class="pointer">Untitled list</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="list">
-                    <p class="list-name">
-                        <span class="pointer">Untitled list</span>
-                    </p>
+            </div>
+            <div class="for-background">
+                <div>
+                    <img src="theme.png" alt="theme" class="theme-change">
                 </div>
-                
-            </div>
-            <div class="font-change">
-                <img src="https://img.icons8.com/ios-glyphs/40/000000/choose-font.png" />
-            </div>
-            <div>
-                <img src="theme.png" alt="theme" class="theme-change">
             </div>
         </div>
         <div id="content">
@@ -69,20 +75,18 @@
             <div class="items">
                 <div class="todo-item">
                     <p>new work</p>
-                </div>
-                <div class="todo-item">
-                    <p>new work 2</p>
+                    <div class="tick-icon">
+                        <img
+                            src="https://img.icons8.com/external-others-inmotus-design/20/000000/external-Done-accept-others-inmotus-design-2.png" />
+                    </div>
+                    <div class="delete-icon">
+                        <img src="https://img.icons8.com/color/23/000000/cancel--v3.png" />
+                    </div>
                 </div>
                 <div class="create">
                     <img
                         src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/25/000000/external-Green-Plus-miscellaneous-kiranshastry-lineal-color-kiranshastry.png" />
                         <p>Create</p>
-                </div>
-                <div class="todo-item">
-                    <p>new work 2</p>
-                </div>
-                <div class="todo-item">
-                    <p>new work 2</p>
                 </div>
             </div>
             
@@ -98,5 +102,7 @@
         const day2 = today.getDate();
         document.getElementById("date").innerHTML = `${day}, ${month} ${day2}`;
     </script>
+
+    <script src="menu.js"></script>
 </body>
 </html>

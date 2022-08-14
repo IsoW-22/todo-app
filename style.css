@@ -33,6 +33,7 @@
 #nav {
     grid-area: nav;
     background-color: var(--body);
+    border-right: 1px solid var(--hover);
 }
 
 #header {
@@ -40,6 +41,16 @@
     background-color: var(--header);
     display: flex;
     position: relative;
+}
+
+.background-less {
+    width: 200px;
+    height: 100%;
+}
+
+.for-background {
+    width: 80%;
+    height: 100%;
     background-image: url("man.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -69,40 +80,10 @@
     flex-wrap: wrap;
 }
 
-.options {
-    display: flex;
-    flex-wrap: wrap;
-    width: 30%;
-    height: 98%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.options li {
-    width: 50%;
-    height: 50%;
-    min-width: 30px;
-    background-color: var(--body);   
-    display: flex;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    padding-left: 20px;
-    font-family: var(--font2);
-    font-weight: 900;
-    font-size: 20px;
-}
-
-.options li:hover {
-    background-color: var(--hover);
-    cursor: pointer;
-    color: var(--text-white);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
 .list-name {
-    font-size: 30px;
+    font-size: 1.5em;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     color: rgba(0, 0, 0, 0.6);
         text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
             0px -5px 35px rgba(255, 255, 255, 0.3);
@@ -111,9 +92,9 @@
 }
 
 .todo-item {
-    padding-top: 20px;
-    width: 33%;
-    max-width: 100px;
+    position: relative;
+    padding-top: 15px;
+    width: 100px;
     height: 100px;
     background-color: var(--items);
     display: flex;
@@ -153,11 +134,37 @@
 .create img {
     position: absolute;
     top: 35%;
+    left: 5px;
 }
 
 .create p{
-    display: inline;
     margin-top: 50px;
+    position: absolute;
+    bottom: 37px;
+    right: 15px;
+}
+
+.tick-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 13px;
+    opacity: .7;
+}
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 13px;
+    opacity: .7;
+}
+
+.delete-icon:hover, .tick-icon:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
 .create:hover {
@@ -170,6 +177,7 @@
 }
 
 .current-part p{
+    margin-top: 5px;
     font-size: 1.3em;
     color: var(--special);
     font-family: var(--font);
@@ -186,10 +194,11 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     background-color: var(--body);
     border-bottom: 1px solid var(--header);
+    opacity: .5;
 }
 
 .font-change img {
@@ -200,21 +209,19 @@
     top: 0;
     right: 0;
     border-bottom: 1px solid var(--header);
+    opacity: .5;
 }
 
 .theme-change:hover, .font-change img:hover {
-    background-color: var(--hover)
+    background-color: var(--hover);
+    opacity: 1;
 }
 
 .upper-nav {
-    height: 120px;
+    height: 110px;
     width: 100%;
     background-image: url('Purple Aesthetic.jpg');
     background-size: cover;
-}
-
-.welcome-small {
-    padding-top: 20px;
 }
 
 .welcome-small p{
@@ -228,13 +235,9 @@
             0px 4px 7px rgba(81, 67, 21, 0.8);
 }
 
-hr {
-    border: 2px solid purple;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+.empty {
+    width: 100%;
+    height: 20px;
 }
 
 .new-ul {
@@ -246,10 +249,10 @@ hr {
 .new-ul li {
     width: 100%;
     background-color: #B270A2;
-    height: 60px;
+    height: 50px;
     font-family: var(--font);
     margin-bottom: 1px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding-top: 15px;
 }
 
@@ -294,6 +297,7 @@ hr {
     font-family: var(--font2);
     font-size: 1.3em;
     padding-left: 10px;
+    margin-bottom: 1px;
 }
 
 .list {
@@ -315,50 +319,46 @@ hr {
     background-color: var(--hover);
 }
 
-@media only screen and (max-width: 600px) {
-    #container {
-        grid-template-columns: 100% !important;
-        grid-template-areas:
-                'header'
-                'content';
-    }
+.create-list {
+    position: relative;
+    padding-left: 30px !important;
+}
 
-    .menu {
-        display: block;
-    }
+.create-list:hover {
+    cursor: pointer;
+}
 
-    .list-name p{
-        display: block;
-        text-align: center;
-    }
+.create-list img {
+    position: absolute;
+    left: 5px;
+    top: 15px;
+}
 
-    #nav {
-        display: none;
-        position: absolute;
-        height: 100%;
-        width: 80%;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        border-right: 1px solid var(--hover);
-    }
+.welcome-small {
+    padding-top: 35px;
+}
 
-    .todo-item {
-        margin-left: 22px !important;
-    }
+.back {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: absolute;
+}
+
+.back:hover {
+    background-color: var(--hover);
 }
 
 @media only screen and (max-width: 768px){
     #container {
-        grid-template-columns: 150px auto;
+        grid-template-columns: minmax(150px,30%) auto;
     }
 
     .list {
         display: none;
-    }
-
-    .list-name {
-        width: 100%;
     }
 
     .list-name p{
@@ -368,7 +368,6 @@ hr {
 
     .dateAndDay {
         position: absolute;
-        bottom: 5px;
     }
 
     .font-change img, .theme-change {
@@ -377,7 +376,7 @@ hr {
     }
 
     .theme-change {
-        top: 30px;
+        top: 0px;
     }
 
     .list2 {
@@ -398,5 +397,49 @@ hr {
         height: 50px;
         padding-top: 10px;
         font-size: 1em;
+    }
+
+    .hide {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'header'
+            'content';
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .list-name p {
+        display: block;
+        text-align: center;
+    }
+
+    #nav {
+        position: fixed;
+        height: 100%;
+        width: 0;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: all .5s;
+    }
+
+    .back {
+        display: block;
+    }
+
+    .todo-item {
+        margin-left: 20px !important;
+    }
+
+    .hide {
+        display: none;
     }
 }
