@@ -60,8 +60,34 @@ create.addEventListener("click", createNewTask)
 function load(){
     sessionStorage.clear();
     sessionStorage.setItem("main", "[]");
+    if(localStorage.getItem("name") == null){
+      const name = prompt("enter your name", "new user");
+      if(name != null || name == ""){
+        localStorage.setItem("name", name);
+        document.querySelector(".user").innerHTML = name;
+      }
+      else {
+        document.querySelector(".user").innerHTML = "new user";
+      }
+    } else {
+        const newName = localStorage.getItem("name");
+        document.querySelector(".user").innerHTML = newName;
+    }
     return;
 }
+
+const userChange = document.querySelector(".user");
+userChange.addEventListener("click", () => {
+  const name = prompt("enter your name", localStorage.getItem("name"));
+      if(name != null || name == ""){
+        localStorage.clear();
+        localStorage.setItem("name", name);
+        document.querySelector(".user").innerHTML = name;
+      }
+      else {
+        document.querySelector(".user").innerHTML = localStorage.getItem("name");
+      }
+})
 
 // now lets do something more fun down here!
 //lets make these tasks buttons work :D so tick will... check it green? important yellow? ok
@@ -114,7 +140,13 @@ tasks.addEventListener("click", taskButtons = (event) => {
           .querySelector(".important-button p").style.color = "white";
           target.parentNode.style.backgroundColor = "#7A4495";
           target.parentNode.querySelector(".task").style.color = "#fff";
-          sessionStorage.removeItem(id);
+          let sItemsForDel = JSON.parse(sessionStorage.getItem("main"));
+          const index = sItemsForDel.indexOf(id);
+          if (index > -1) {
+            sItemsForDel.splice(index, 1);
+          }
+          sessionStorage.removeItem("main");
+          sessionStorage.setItem("main", JSON.stringify(sItemsForDel));
       } else {
         target.parentNode
           .querySelector(".important-button p").style.color = "orangered";
@@ -145,6 +177,8 @@ function justImportant(){
       }
     })
   }
+  document.querySelector(".create-imp").style.display = "block";
+  document.querySelector(".create").style.display = "none";
 }
 
 const importantThings = document.querySelector(".importants");
@@ -155,8 +189,78 @@ function showAll() {
   items.forEach((item) => {
     item.style.display = "block";
   });
+  document.querySelector(".create-imp").style.display = "none";
+  document.querySelector(".create").style.display = "block";
 }
 
 
 const dayItems = document.querySelector(".day");
 dayItems.addEventListener("click", showAll);
+
+// nowwwww lets make important tasks :D
+// just some copy pastes you know :D
+
+const createNewImportantTask = () => {
+    const itemCount = document.querySelector(".items").childNodes.length;
+    const main = document.querySelector(".items");
+    const create = document.getElementById("create");
+
+    const div = document.createElement("div");
+    div.classList.add("todo-item");
+    div.setAttribute("id",`item-${itemCount - 3}`);
+    div.style.backgroundColor = "#ffde20";
+    main.insertBefore(div, create);
+
+    const tickButton = document.createElement("Button");
+    const tickImg = document.createElement("img");
+    tickImg.src =
+      "https://img.icons8.com/external-others-inmotus-design/20/000000/external-Done-accept-others-inmotus-design-2.png";
+    tickButton.classList.add("tick-icon");
+    div.appendChild(tickButton);
+    tickButton.appendChild(tickImg);
+
+    const delButton = document.createElement("button");
+    const delImg = document.createElement("img");
+    delImg.src = "https://img.icons8.com/color/23/000000/cancel--v3.png";
+    delButton.classList.add("delete-icon");
+    delButton.appendChild(delImg);
+    div.appendChild(delButton);
+
+    const editButton = document.createElement("button");
+    const editImg = document.createElement("img");
+    editImg.src =
+      "https://img.icons8.com/external-flaticons-flat-flat-icons/25/000000/external-edit-100-most-used-icons-flaticons-flat-flat-icons-2.png";
+    editButton.classList.add("edit-icon");
+    editButton.appendChild(editImg);
+    div.appendChild(editButton);
+
+    const starButton = document.createElement("button"); 
+    const star = document.createElement("p");
+    star.innerHTML = "&#9733;";
+    star.classList.add("important");
+    star.style.color = "orangered";
+    starButton.classList.add("important-button");
+    starButton.appendChild(star);
+    div.appendChild(starButton);
+
+    const textarea = document.createElement("p");
+    textarea.classList.add("task");
+    textarea.style.color = "#000";
+    
+    let textInput = prompt("Please enter your task name:", "new task");
+    if (textInput == null || textInput == "") {
+      textarea.innerHTML = "new task";
+    } else {
+      textarea.innerHTML = textInput;
+    }
+    div.appendChild(textarea);
+
+    const id = div.getAttribute("id");
+    let sessionItems = JSON.parse(sessionStorage.getItem("main"));
+    sessionItems.push(id);
+    sessionStorage.removeItem("main");
+    sessionStorage.setItem("main", JSON.stringify(sessionItems));
+}
+
+const createImp = document.getElementById("create-imp");
+createImp.addEventListener("click", createNewImportantTask);
