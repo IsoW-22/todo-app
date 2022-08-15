@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="load()">
     <div id="container">
         <div id="nav">
             <div class="hide">
@@ -26,10 +26,8 @@
                 </div>
                 <div class="lower-nav">
                     <ul class="new-ul">
-                        <li><span class="sun">🌞</span><p> Day</p></li>
-                        <li><span class="star">⭐️</span><p class="li">Important</p></li>
-                        <li><span class="plan">&#x1F4D1;</span><p class="li">Planned</p></li>
-                        <li><span class="plan">&#x1F4DD;</span><p class="li">Tasks</p></li>
+                        <li class="day"><span class="sun">🌞</span><p> Day</p></li>
+                        <li class="importants"><span class="star">⭐️</span><p class="li">Important</p></li>
                     </ul>
                 </div>
                 <div class="empty"></div>
@@ -73,17 +71,7 @@
                 </p>
             </div>
             <div class="items">
-                <div class="todo-item">
-                    <p>new work</p>
-                    <div class="tick-icon">
-                        <img
-                            src="https://img.icons8.com/external-others-inmotus-design/20/000000/external-Done-accept-others-inmotus-design-2.png" />
-                    </div>
-                    <div class="delete-icon">
-                        <img src="https://img.icons8.com/color/23/000000/cancel--v3.png" />
-                    </div>
-                </div>
-                <div class="create">
+                <div class="create" id="create">
                     <img
                         src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/25/000000/external-Green-Plus-miscellaneous-kiranshastry-lineal-color-kiranshastry.png" />
                         <p>Create</p>
@@ -104,5 +92,6 @@
     </script>
 
     <script src="menu.js"></script>
+    <script src="functions.js"></script>
 </body>
 </html>
