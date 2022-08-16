@@ -11,7 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 </head>
-<body onload="load()">
+
+<script>
+    sessionStorage.clear();
+    sessionStorage.setItem("current div", "content");
+    sessionStorage.setItem("item-0", "content");
+    sessionStorage.setItem("content-items", "[]");
+</script>
+
+<body>
     <div id="container">
         <div id="nav">
             <div class="hide">
@@ -24,6 +32,22 @@
                         <p><span class="pointer user">new user</span></p>
                     </div>
                 </div>
+
+                <script>
+                        if (localStorage.getItem("name") == null) {
+                            const name = prompt("enter your name", "new user");
+                            if (name == null || name == "") {
+                                document.querySelector(".user").innerHTML = "new user";
+                            } else {
+                                localStorage.setItem("name", name);
+                                document.querySelector(".user").innerHTML = name;
+                            }
+                        } else {
+                            const newName = localStorage.getItem("name");
+                            document.querySelector(".user").innerHTML = newName;
+                        }
+                </script>
+
                 <div class="lower-nav">
                     <ul class="new-ul">
                         <li class="day"><span class="sun">🌞</span><p> Day</p></li>
@@ -32,8 +56,8 @@
                 </div>
                 <div class="empty"></div>
                 <div class="lists">
-                    <ul>
-                        <li>Untitled list</li>
+                    <ul class="lists-items">
+                        <li id="item-0" class="list-item" style="border-left: 5px groove rgb(236, 8, 84);">Untitled list</li>
                         <li class="create-list"><img src="https://img.icons8.com/emoji/20/000000/plus-emoji.png" />Create List</li>
                     </ul>
                 </div>
