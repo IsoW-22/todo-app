@@ -8,8 +8,8 @@
     --font: 'Courgette',
         cursive;
     --font2: 'Dancing Script', cursive;
-    --header:#7A4495;
-    --body:#FCE2DB;
+    --header: #7A4495;
+    --body: #FCE2DB;
     --items: #7A4495;
     --text-white: #fff;
     --text-black: #000;
@@ -30,8 +30,8 @@
     grid-template-rows: 110px auto;
     grid-template-columns: 250px auto;
     grid-template-areas:
-    'nav header'
-    'nav content';
+        'nav header'
+        'nav content';
     position: relative;
 }
 
@@ -39,6 +39,7 @@
     grid-area: nav;
     background-color: var(--body);
     border-right: 1px solid var(--hover);
+    overflow: auto;
 }
 
 #header {
@@ -62,7 +63,7 @@
     background-position: center;
 }
 
-.welcome p{
+.welcome p {
     color: var(--text-white);
     margin-right: 30px;
     margin-left: 20px;
@@ -93,8 +94,8 @@
     text-align: center;
     margin-top: 15px;
     color: rgba(0, 0, 0, 0.6);
-        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
-            0px -5px 35px rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
+        0px -5px 35px rgba(255, 255, 255, 0.3);
     font-family: var(--font);
     color: var(--text-white);
 }
@@ -121,8 +122,8 @@
 
 .task {
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
-            0px 8px 13px rgba(0, 0, 0, 0.1),
-            0px 18px 23px rgba(0, 0, 0, 0.1);
+        0px 8px 13px rgba(0, 0, 0, 0.1),
+        0px 18px 23px rgba(0, 0, 0, 0.1);
     color: var(--text-white);
     font-size: 1em;
     font-family: var(--font);
@@ -154,7 +155,7 @@
     left: 5px;
 }
 
-.create p{
+.create p {
     margin-top: 50px;
     position: absolute;
     bottom: 37px;
@@ -195,6 +196,10 @@
     border: none;
 }
 
+.list-item {
+    position: relative;
+}
+
 .delete-icon {
     width: 20px;
     height: 20px;
@@ -205,7 +210,10 @@
     border: none;
 }
 
-.delete-icon:hover, .tick-icon:hover, .edit-icon:hover, .important-button:hover {
+.delete-icon:hover,
+.tick-icon:hover,
+.edit-icon:hover,
+.important-button:hover {
     cursor: pointer;
 }
 
@@ -219,7 +227,8 @@
     left: 38px;
 }
 
-.create:hover, .create-imp:hover {
+.create:hover,
+.create-imp:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     cursor: pointer;
 }
@@ -228,7 +237,7 @@
     margin-left: 15px;
 }
 
-.current-part p{
+.current-part p {
     margin-top: 5px;
     font-size: 1.3em;
     color: var(--special);
@@ -264,7 +273,8 @@
     opacity: .5;
 }
 
-.theme-change:hover, .font-change img:hover {
+.theme-change:hover,
+.font-change img:hover {
     background-color: var(--hover);
     opacity: 1;
 }
@@ -276,15 +286,15 @@
     background-size: cover;
 }
 
-.welcome-small p{
+.welcome-small p {
     color: var(--text-white);
     margin-left: 20px;
     line-height: 25px;
     font-family: var(--font);
     font-size: 1.5em;
     text-shadow: 3px 0px 7px rgba(81, 67, 21, 0.8),
-            -3px 0px 7px rgba(81, 67, 21, 0.8),
-            0px 4px 7px rgba(81, 67, 21, 0.8);
+        -3px 0px 7px rgba(81, 67, 21, 0.8),
+        0px 4px 7px rgba(81, 67, 21, 0.8);
 }
 
 .empty {
@@ -322,7 +332,7 @@
     margin-left: 5px;
 }
 
-.sun{
+.sun {
     margin-left: 15px;
 }
 
@@ -330,7 +340,7 @@
     margin-left: 15px;
 }
 
-.lists ul{
+.lists ul {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -344,7 +354,7 @@
     color: var(--text-white);
     font-family: var(--font2);
     font-size: 1.3em;
-    padding-left: 10px;
+    padding-left: 28px;
     margin-bottom: 1px;
 }
 
@@ -380,6 +390,18 @@
     position: absolute;
     left: 5px;
     top: 15px;
+}
+
+
+
+.delete-list {
+    position: absolute;
+    top: 15px;
+    left: 2px;
+}
+
+.delete-list:hover {
+    cursor: pointer;
 }
 
 .welcome-small {
@@ -419,16 +441,16 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
     #container {
-        grid-template-columns: minmax(150px,30%) auto;
+        grid-template-columns: minmax(150px, 30%) auto;
     }
 
     .list {
         display: none;
     }
 
-    .list-name p{
+    .list-name p {
         display: block;
         text-align: center;
     }
@@ -437,7 +459,8 @@
         position: absolute;
     }
 
-    .font-change img, .theme-change {
+    .font-change img,
+    .theme-change {
         width: 30px;
         height: 30px;
     }
@@ -511,4 +534,3 @@
         color: rgb(236, 8, 84);
     }
 }
-

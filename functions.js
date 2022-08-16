@@ -352,6 +352,14 @@ const createList = () => {
   document
     .querySelector(".lists ul")
     .insertBefore(listNav, document.querySelector(".lists ul .create-list"));
+  const listImg = document.createElement("img");
+  listImg.src = "https://img.icons8.com/emoji/20/000000/minus-emoji.png";
+  listImg.classList.add("delete-list");
+  listNav.appendChild(listImg);
+  document.querySelectorAll(".lists-items li").forEach(li => {
+    li.style.border = "none";
+  });
+  listNav.style.borderLeft = "5px groove rgb(236, 8, 84)";
 }
 
 document.querySelector(".create-list").addEventListener("click", createList);
@@ -375,7 +383,22 @@ function listCheck (event){
     });
     target.style.borderLeft = "5px groove rgb(236, 8, 84)";
   }
+  if(target.classList.contains("delete-list")){
+    const getID = target.parentNode.id;
+    const getsesID = sessionStorage.getItem(getID);
+    document.querySelector("#" + getsesID).style.display = "none";
+    document.querySelector("#content").style.display = "block";
+    document.querySelector("#item-0").style.borderLeft =
+      "5px groove rgb(236, 8, 84)";
+      target.parentNode.querySelectorAll("li").forEach((node) => {
+        node.style.border = "none";
+      });
+    sessionStorage.setItem("current div", "content");
+    sessionStorage.removeItem(getID);
+    sessionStorage.removeItem(`${getsesID}-items`);
+    target.parentNode.remove();
+  }
 }
 
 const selectLists = document.querySelector(".lists-items");
-selectLists.addEventListener("click", listCheck)
+selectLists.addEventListener("click", listCheck);
