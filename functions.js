@@ -5,16 +5,8 @@ const createNewTask = () => {
     const itemCount = document.querySelector(`#${ses} .items`).childNodes.length;
     const main = document.querySelector(`#${ses} .items`);
     const create = document.querySelector(`#${ses} #create`);
-    const textarea = document.createElement("p");
-
-    let textInput = prompt("Please enter your task name:", "new task");
-    if (textInput == null || textInput == "") {
-      return;
-    } else {
-      textarea.innerHTML = textInput;
-    }
+    const textarea = document.createElement("input");
     textarea.classList.add("task");
-
     const div = document.createElement("div");
     div.classList.add("todo-item");
     div.setAttribute("id",`item-${itemCount - 1}`)
@@ -52,11 +44,21 @@ const createNewTask = () => {
     div.appendChild(starButton);
 
     div.appendChild(textarea);
+    textarea.focus();
+    textarea.addEventListener("focusout", disableButton);
 }
 
 const create = document.querySelector(".create");
 create.addEventListener("click", createNewTask)
 
+
+function disableButton (event) {
+  const target = event.target;
+  target.readOnly = true;
+  if (target.value == "" || target.value == null){
+    target.value = "new task";
+  }
+}
 // ^^^^^^^^^^^^^ up there... to make new tasks no? :D ^^^^^^^^^^
 
 const userChange = document.querySelector(".user");
@@ -120,13 +122,8 @@ function allButtons(event) {
   }
 
   if (target.classList.contains("edit-icon")) {
-    const pText = target.parentNode.querySelector(".task").innerHTML;
-    let textInput = prompt("Please enter your task name:", pText);
-    if (textInput == null || textInput == "") {
-      return;
-    } else {
-      target.parentNode.querySelector(".task").innerHTML = textInput;
-    }
+    target.parentNode.querySelector(".task").readOnly = false;
+    target.parentNode.querySelector(".task").focus();
   }
 
   if (target.classList.contains("important-button")) {
@@ -215,13 +212,7 @@ const createNewImportantTask = () => {
     const main = document.querySelector(`#${ses} .items`);
     const create = document.querySelector(`#${ses} #create`);
 
-    const textarea = document.createElement("p");
-    let textInput = prompt("Please enter your task name:", "new task");
-    if (textInput == null || textInput == "") {
-      return;
-    } else {
-      textarea.innerHTML = textInput;
-    }
+    const textarea = document.createElement("input");
 
     const div = document.createElement("div");
     div.classList.add("todo-item");
@@ -273,6 +264,8 @@ const createNewImportantTask = () => {
     sessionItems.push(id);
     sessionStorage.removeItem(`${divID}-items`);
     sessionStorage.setItem(`${divID}-items`, JSON.stringify(sessionItems));
+    textarea.focus();
+    textarea.addEventListener("focusout", disableButton);
 }
 
 const createImp = document.getElementById("create-imp");

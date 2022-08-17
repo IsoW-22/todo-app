@@ -129,6 +129,9 @@
     font-family: var(--font);
     background-color: transparent;
     text-align: center;
+    width: 90%;
+    height: 30%;
+    border: none;
 }
 
 .items img {
